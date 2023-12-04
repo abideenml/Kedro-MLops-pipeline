@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/mac/Documents/Github/Churn/Churn-Modeling/churn-modeling/mlruns/189508663681565914/8cc9ef9ad8134421adf0ca8c47b6346a/artifacts
+end_time: 1697572871647
+entry_point_name: ''
+experiment_id: '189508663681565914'
+lifecycle_stage: active
+run_id: 8cc9ef9ad8134421adf0ca8c47b6346a
+run_name: __default__
+run_uuid: 8cc9ef9ad8134421adf0ca8c47b6346a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697572662289
+status: 3
+tags: []
+user_id: mac

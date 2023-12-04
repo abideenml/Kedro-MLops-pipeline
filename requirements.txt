@@ -1,0 +1,9 @@
+numpy
+pandas
+kedro
+kedro-viz
+matplotlib
+seaborn
+scikit-learn
+plotly
+kedro-mlflow

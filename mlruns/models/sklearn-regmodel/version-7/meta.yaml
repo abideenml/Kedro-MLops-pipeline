@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1697573674518
+current_stage: None
+description: null
+last_updated_timestamp: 1697573674518
+name: sklearn-regmodel
+run_id: ba512ef574184f31beaf66150acbd246
+run_link: null
+source: file:///Users/mac/Documents/Github/Churn/Churn-Modeling/churn-modeling/mlruns/189508663681565914/ba512ef574184f31beaf66150acbd246/artifacts/sklearn-model
+status: READY
+status_message: null
+user_id: null
+version: 7

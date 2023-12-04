@@ -1,0 +1,116 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+raw_data:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/CustomerChurn.csv
+
+
+preprocessed_intermediate_data:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/preprocessed_intermediate_data.csv
+
+preprocessed_data:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/preprocessed_data.pq
+
+train_x:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/train_x.pq
+
+train_y:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/train_y.pq
+
+test_x:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/test_x.pq
+
+test_y:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/test_y.pq
+
+train_x_smote:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/train_x_smote.pq
+
+train_y_smote: 
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/train_y_smote.pq
+
+classifier:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/classifier.pickle
+  versioned: true
+
+pred_train:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/pred_train.csv
+
+pred_test:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/pred_test.csv
+
+confusion_matrix:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/confusion_matrix.png
+    versioned: true
+
+positive_correlation:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/positive_corelation.png
+    versioned: true
+
+negative_correlation:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/negative_corelation.png
+    versioned: true
+  
+pairwise_plot:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/pairwise_plot.png
+    versioned: true
+
+churn_distribution:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataSet
+  data_set:
+    type: matplotlib.MatplotlibWriter
+    filepath: data/08_reporting/churn_distribution.png
+    versioned: true
+
+metrics:
+    type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
+
+driftmetric:
+    type: kedro_mlflow.io.metrics.MlflowMetricsDataSet
+
+
+
+
+
+
+
+
+
+# MLPredictor:
+#   type: pickle.PickleDataSet
+#   filepath: data/10_predictor/MLPredictor.pickle
+#   versioned: true
+
+#  Remember to change 09_tracking to 08_reporting
+# metrics:
+#     type: tracking.MetricsDataSet
+#     filepath: data/09_tracking/metrics.json
+# churn_columns:
+#   type: tracking.JSONDataSet
+#   filepath: data/08_reporting/churn_columns.json
