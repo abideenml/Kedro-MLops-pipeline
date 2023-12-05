@@ -1,130 +1,21 @@
-# churn-modeling
+## Churn Prediction with Kedro, Kedro-Viz, and Kedro-Mlflow :snowflake: :man:
 
-## Overview
-
-This is your new Kedro project, which was generated using `kedro 0.18.13`.
-
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
-
-## Rules and guidelines
-
-In order to get the best out of the template:
-
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a data engineering convention
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
-
-## How to install dependencies
-
-Declare any dependencies in `src/requirements.txt` for `pip` installation and `src/environment.yml` for `conda` installation.
-
-To install them, run:
-
-```
-pip install -r src/requirements.txt
-```
-
-## How to run your Kedro pipeline
-
-You can run your Kedro project with:
-
-```
-kedro run
-```
-
-## How to test your Kedro project
-
-Have a look at the file `src/tests/test_run.py` for instructions on how to write your tests. You can run your tests as follows:
-
-```
-kedro test
-```
-
-To configure the coverage threshold, go to the `.coveragerc` file.
-
-## Project dependencies
-
-To generate or update the dependency requirements for your project:
-
-```
-kedro build-reqs
-```
-
-This will `pip-compile` the contents of `src/requirements.txt` into a new file `src/requirements.lock`. You can see the output of the resolution by opening `src/requirements.lock`.
-
-After this, if you'd like to update your project requirements, please update `src/requirements.txt` and re-run `kedro build-reqs`.
-
-[Further information about project dependencies](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
-
-## How to work with Kedro and notebooks
-
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `context`, `catalog`, and `startup_error`.
->
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r src/requirements.txt` you will not need to take any extra steps before you use them.
-
-### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
-
-```
-pip install jupyter
-```
-
-After installing Jupyter, you can start a local notebook server:
-
-```
-kedro jupyter notebook
-```
-
-### JupyterLab
-To use JupyterLab, you need to install it:
-
-```
-pip install jupyterlab
-```
-
-You can also start JupyterLab:
-
-```
-kedro jupyter lab
-```
-
-### IPython
-And if you want to run an IPython session:
-
-```
-kedro ipython
-```
-
-### How to convert notebook cells to nodes in a Kedro project
-You can move notebook code over into a Kedro project structure using a mixture of [cell tagging](https://jupyter-notebook.readthedocs.io/en/stable/changelog.html#release-5-0-0) and Kedro CLI commands.
-
-By adding the `node` tag to a cell and running the command below, the cell's source code will be copied over to a Python file within `src/<package_name>/nodes/`:
-
-```
-kedro jupyter convert <filepath_to_my_notebook>
-```
-> *Note:* The name of the Python file matches the name of the original notebook.
-
-Alternatively, you may want to transform all your notebooks in one go. Run the following command to convert all notebook files found in the project root directory and under any of its sub-folders:
-
-```
-kedro jupyter convert --all
-```
-
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can run `kedro activate-nbstripout`. This will add a hook in `.git/config` which will run `nbstripout` before anything is committed to `git`.
-
-> *Note:* Your output cells will be retained locally.
-
-## Package your Kedro project
-
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)
+This repo contains the Scam Signature detection dataset and collection of various Vectorization, Clustering and Classification techniques to effectively detect telephone-based social engineering attacks. This repo uses a social engineering detection approach called the Anti-Social Engineering Tool (ASsET), which detects attacks based on the semantic content of the conversation. (:link: [Ali et al.](https://dl.acm.org/doi/pdf/10.1145/3445970.3451152)). <br/>
 
 
+It's aimed at exploring Kedro, Kedro-viz and Kedro-mlflow for ML pipelines. <br/>
 
-# Customer Churn Predictor
-> [Link to Churn Predictor](https://churnpredictorzain.herokuapp.com/)
+## Table of Contents
+  * [Customer Churn Prediction](#customer-churn-prediction)
+  * [Kedro Visualization](#kedro-visualization)
+  * [Setup](#setup)
+  * [Todos](#todos)
+  * [Acknowledgements](#acknowledgements)
+  * [Citation](#citation)
+  * [Connect with me](#connect-with-me)
+
+
+# Customer Churn Prediction
 
 Customer churn is the percentage of customers your business lost in a set period of time. For instance, if you had 100 customers at the beginning of the month, and lost 
 10 of them throughout the month, you had a 10% churn rate for the month.
@@ -146,3 +37,88 @@ I have also made a Power BI report to better understand and visualize the data.
 ![image](https://user-images.githubusercontent.com/89645252/187372189-ea2ed519-73ba-439b-8570-81d6cc96fb73.png)
 ![image](https://user-images.githubusercontent.com/89645252/187372251-e7fb19fe-ea00-4c1e-90cc-968970ba03e3.png)
 
+
+## Kedro Visualization
+
+<p align="center">
+<img src="readme_pics/kedro-viz.png" width="400"/>
+</p>
+
+## Setup
+
+So we talked about what customer churn prediction is, and what it can do for us (among other things). <br/>
+Let's get this thing running! Follow the next steps:
+
+1. `git clone https://github.com/abideenml/Kedro-ML-pipeline`
+2. Navigate into project directory `cd path_to_repo`
+3. Create a new venv environment and run `pip install -r requirements.txt`
+4. Run your Kedro project with:
+
+```
+kedro run
+```
+5. You can run your tests mentioned below. To configure the coverage threshold, go to the `.coveragerc` file.
+
+```
+kedro test
+```
+  
+6. To generate or update the dependency requirements for your project:
+
+```
+kedro build-reqs
+```
+7. To launch Kedro-Viz from the command line as a Kedro plugin, use the following command from the root folder of your Kedro project:
+
+```bash
+kedro viz
+```
+
+A browser tab opens automatically to serve the visualisation at `http://127.0.0.1:4141/`.
+
+That's it! It should work out-of-the-box executing requirements.txt file which deals with dependencies. <br/>
+
+## Todos:
+
+Finally there are a couple more todos which I'll hopefully add really soon:
+* Deploy this entire pipeline on AWS Ec2.
+* Capture drift and validate data.
+* Perform extensive feature engineering and data exploration to better understand the missing points of data story.
+
+
+
+## Acknowledgements
+
+I found these resources useful (while developing this one):
+
+* [Building and Managing Data Science Pipelines with Kedro](https://neptune.ai/blog/data-science-pipelines-with-kedro)
+* [Kedro-Mlflow](https://github.com/Galileo-Galilei/kedro-mlflow)
+* [Data Versioning with DVC](https://medium.com/@thanakornpanyapiang/data-versioning-with-dvc-a474af1247f5)
+
+
+## Citation
+
+If you find this code useful, please cite the following:
+
+```
+@misc{Zain2023KedroMLPipeline,
+  author = {Zain, Abideen},
+  title = {kedro-ml-pipeline},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/abideenml/Kedro-ML-pipeline/tree/master/Detecting-Telephone-based-Social-Engineering-Attacks}},
+}
+```
+
+## Connect with me
+
+If you'd love to have some more AI-related content in your life :nerd_face:, consider:
+
+* Connect and reach me on [LinkedIn](https://www.linkedin.com/in/zaiinulabideen/) and [Twitter](https://twitter.com/zaynismm)
+* Follow me on 📚 [Medium](https://medium.com/@zaiinn440)
+* Subscribe to my 📢 weekly [AI newsletter](https://rethinkai.substack.com/)!
+
+## Licence
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/abideenml/Kedro-ML-pipeline/blob/master/LICENCE)
