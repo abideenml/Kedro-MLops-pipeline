@@ -1,9 +1,7 @@
 ## Churn Prediction with Kedro, Kedro-Viz, and Kedro-Mlflow :snowflake: :man:
 
-This repo contains the Scam Signature detection dataset and collection of various Vectorization, Clustering and Classification techniques to effectively detect telephone-based social engineering attacks. This repo uses a social engineering detection approach called the Anti-Social Engineering Tool (ASsET), which detects attacks based on the semantic content of the conversation. (:link: [Ali et al.](https://dl.acm.org/doi/pdf/10.1145/3445970.3451152)). <br/>
+This repo is aimed at exploring Kedro, Kedro-viz and Kedro-mlflow for ML pipelines. For this project I have chosen a simple usecase of churn prediction. This project has four pipelines that are data preprocessing, data science, reporting and api. (:link: [Kedro](https://kedro.org/)) <br/>
 
-
-It's aimed at exploring Kedro, Kedro-viz and Kedro-mlflow for ML pipelines. <br/>
 
 ## Table of Contents
   * [Customer Churn Prediction](#customer-churn-prediction)
